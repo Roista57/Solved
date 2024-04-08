@@ -40,7 +40,7 @@ public class Main {
 				}
 			}
 		}
-		per(0);
+		per(0, 4);
 
 		if (min == Integer.MAX_VALUE) {
 			System.out.println("-1");
@@ -49,7 +49,7 @@ public class Main {
 		}
 	}
 
-	static void per(int idx) {
+	static void per(int idx, int num) {
 		if (idx == 10) {
 			char[][] temp = copy(map);
 			Point r = new Point(R.name, R.i, R.j);
@@ -134,8 +134,10 @@ public class Main {
 		}
 
 		for (int i = 0; i < 4; i++) {
-			list[idx] = i;
-			per(idx + 1);
+			if (num != i) {
+				list[idx] = i;
+				per(idx + 1, i);
+			}
 		}
 	}
 
