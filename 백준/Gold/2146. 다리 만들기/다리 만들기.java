@@ -87,7 +87,8 @@ public class Main {
 
 		while (!queue.isEmpty()) {
 			Bridge p = queue.poll();
-
+			if (p.len > min)
+				continue;
 			for (int d = 0; d < 4; d++) {
 				int ni = p.i + di[d];
 				int nj = p.j + dj[d];
