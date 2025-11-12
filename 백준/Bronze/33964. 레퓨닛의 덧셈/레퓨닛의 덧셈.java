@@ -9,11 +9,20 @@ public class Main {
 		int Y = Integer.parseInt(st.nextToken());
 		StringBuilder sb = new StringBuilder();
 
-		for(int i=0;i<Math.abs(X-Y);i++){
-			sb.append(1);
-		}
-		for(int i=0;i<Math.min(X, Y);i++){
-			sb.append(2);
+		if(X > Y){
+			for(int i=0;i<X-Y;i++){
+				sb.append("1");
+			}
+			for(int i=0;i<Y;i++){
+				sb.append("2");
+			}
+		}else{
+			for(int i=0;i<Y-X;i++){
+				sb.append("1");
+			}
+			for(int i=0;i<X;i++){
+				sb.append("2");
+			}
 		}
 		System.out.println(sb.toString());
 	}
