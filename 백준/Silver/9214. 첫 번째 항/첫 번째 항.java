@@ -4,6 +4,7 @@ import java.io.*;
 public class Main {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		String line = "";
 		int cnt = 1;
 		while(!(line = br.readLine()).equals("0")){
@@ -12,9 +13,10 @@ public class Main {
 				if(line.equals(bf)) break;
 				line = bf;
 			}
-			System.out.println("Test "+cnt+": "+line);
+			sb.append("Test ").append(cnt).append(": ").append(line).append("\n");
 			cnt++;
 		}
+		System.out.println(sb.toString());
 	}
 
 	static String before(String st){
@@ -27,23 +29,6 @@ public class Main {
 				line += num;
 			}
 		}
-		return line;
-	}
-
-	static String after(String st){
-		String line = "";
-		int cnt = 0;
-		char ch = st.charAt(0);
-		for(int i=0;i<st.length();i++){
-			if(ch == st.charAt(i)){
-				cnt++;
-			}else{
-				line += cnt+""+ch+"";
-				cnt = 1;
-				ch = st.charAt(i);
-			}
-		}
-		line += cnt+""+ch+"";
 		return line;
 	}
 }
