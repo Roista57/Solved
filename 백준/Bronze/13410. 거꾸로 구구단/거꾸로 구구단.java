@@ -9,8 +9,19 @@ public class Main {
 		int K = Integer.parseInt(st.nextToken());
 		int max = 0;
 		for(int i=1;i<=K;i++){
-			max = Math.max(max, Integer.parseInt(new StringBuilder(N*i+"").reverse().toString()));
+			// System.out.println(reverse(N*i));
+			max = Math.max(max, reverse(N*i));
 		}
 		System.out.println(max);
+	}
+
+	static int reverse(int num){
+		int ans = 0;
+		while(num != 0){
+			ans += num % 10;
+			num /= 10;
+			if(num != 0) ans *= 10;
+		}
+		return ans;
 	}
 }
