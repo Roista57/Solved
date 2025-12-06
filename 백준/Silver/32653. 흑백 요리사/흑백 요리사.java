@@ -6,12 +6,9 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		long[] list = new long[N];
-		long LCM = 0;
+		long LCM = 1;
 		for(int i=0;i<N;i++){
-			list[i] = Long.parseLong(st.nextToken());
-			if(i == 0) LCM = list[i];
-			else LCM = lcm(LCM, list[i]);
+			LCM = lcm(LCM, Long.parseLong(st.nextToken()));
 		}
 		System.out.println(LCM*2L);
 	}
