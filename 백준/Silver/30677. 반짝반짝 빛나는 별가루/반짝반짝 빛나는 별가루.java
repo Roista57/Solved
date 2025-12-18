@@ -34,11 +34,9 @@ public class Main {
 		for(int i=0;i<N;i++){
 			int mg = Integer.parseInt(br.readLine());
 			if(mg != 0){
-				// double로 했을 때 안됬으니 더 정확하게
-				BigDecimal temp1 = BigDecimal.valueOf(combo).multiply(BigDecimal.valueOf(C)).divide(BigDecimal.valueOf(100)).add(BigDecimal.ONE);
-				BigDecimal temp2 = BigDecimal.valueOf(skill[mg]).multiply(BigDecimal.valueOf(s[mg])).divide(BigDecimal.valueOf(100)).add(BigDecimal.ONE);
-				BigDecimal stardust = BigDecimal.valueOf(base[mg]).multiply(temp1).multiply(temp2);
-				ans += stardust.longValue();
+				// 분모를 밖으로 빼버리는 방법으로
+				long stardust = (base[mg] * (100L + combo * C) * (100L + skill[mg] * s[mg])) / 10000L;
+				ans += stardust;
 				combo++;
 				skill[mg]++;
 				energy += p[mg];
